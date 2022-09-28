@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My website</title>
+        <link rel="stylesheet" href ="{{url_for('static',filename='/css/index.css')}}"
+    </head>
+
+    <body>
+        <!-- call css file-->
+        <center><h1 class="test">Roberts storeb</h1></center>
+
+        <!-- call about.html file-->
+        <a href="{{url_for('app_blueprint.about3')}}">about us</a>
+        <a href="{{url_for('app_blueprint.nameForm')}}">Name Form</a>
+
+        <center><p>Best merch in the buiness</p></center>
+
+        <!--show image-->
+        <img src= "{{url_for('static',filename='/img/Great.jpeg')}}"
+        <center><p>Popular products</p></center>
+
+        <!--loop-->
+        {% for product in popular_products %}
+           <h3>Product Name: {{product.name}} </h3>
+           <h3>Product size: {{product.size}} </h3>
+           <img src= "{{url_for('static',filename=product.img)}}"
+        {% endfor %}
+
+
+    </body>
+
+
+</html>
