@@ -1,0 +1,18 @@
+{
+    "dsp_apim_create_test": {
+         "story": "4288",
+         "testname": "Create new Proxy Config",
+        "Roles": {
+            "fromJWT": "true",
+            "roles": [
+                "device-manager",
+                "BillingReader"
+            ],
+            "cc": [
+                "cc1",
+                "0oazxjkf4pXvsZzPk696"
+            ]
+           }
+         }
+ }
+ 
