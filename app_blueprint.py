@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template,request
+from flask import Blueprint, render_template,request,jsonify
 
 app_blueprint = Blueprint('app_blueprint',__name__)
 first_name = ""
@@ -38,3 +38,19 @@ def nameForm():
        #return "Your name is "+first_name + last_name
        return render_template("about.html",first_name=first_name)
     return render_template("name_form.html")
+
+@app_blueprint.route('/process',methods=['POST'])   
+def process():
+        email = request.form['email']
+        name = request.form['name']
+
+        if name and email:
+                newName = name[::-1]
+                return jsonify({'name' : newName})
+        return jsonify({'error': 'Missing data'})        
+
+
+@app_blueprint.route('/nameFormAjax')
+def nameFormAjax():
+        #return "<h1>Homepage2<h1>"
+        return render_template("name_form-ajax.html")    
