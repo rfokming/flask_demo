@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template,request,jsonify
+from flask import Blueprint, render_template,request,jsonify,session
+from flask_session import Session
 
 app_blueprint = Blueprint('app_blueprint',__name__)
 first_name = ""
@@ -35,6 +36,9 @@ def nameForm():
        first_name = request.form.get("fname")
        # getting input with name = lname in HTML form
        last_name = request.form.get("lname")
+
+       session["full_name"] = first_name + " "  + last_name
+
        #return "Your name is "+first_name + last_name
        return render_template("about.html",first_name=first_name)
     return render_template("name_form.html")

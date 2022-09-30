@@ -11,6 +11,13 @@
         <p>Hello {{first_name}}</p>
         <center><h1>About us</h1></center>
         <center><p>We sell fast</p></center>
+        <br>
+        {% if session.full_name %}
+            You are Registered {{ session.full_name }} .
+        {% else %}
+            You are not Registered..
+        {% endif %}
+
     </body>
 
 
